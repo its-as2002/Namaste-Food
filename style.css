@@ -30,9 +30,9 @@
 .header .logo img {
 	width: 80px;
 }
-.mid-body{
-    background: rgba(255, 217, 0, 0.445);
-    padding: 10px;
+.mid-body {
+	background: rgba(192, 192, 153, 0.445);
+	padding: 10px;
 }
 .mid-body .search input {
 	padding: 10px;
@@ -49,15 +49,14 @@
 }
 
 .card-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .card-container .card {
 	width: 300px;
-	height: 400px;
+	height: auto;
 	margin: 10px;
 	border: 2px solid #22222218;
 	display: flex;
@@ -65,18 +64,27 @@
 
 	padding: 10px;
 	&:hover {
-		font-size: 20px;
 		border: 2px solid #22222252;
-        border-radius: 40px;
+		border-radius: 40px;
+		cursor: pointer;
 	}
 }
 
 .card-container .card img {
 	width: 278px;
-	height: auto;
+	height: 200px;
 	border: 2px solid #3333331f;
-    border-radius: 30px;
+	border-radius: 30px;
 }
-.card-container .content{
-    padding-left: 10px;
+.card-container .content {
+	padding-left: 10px;
 }
+
+.footer{
+	background-color: #333;
+	color: aliceblue;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 10px;
+}
+
