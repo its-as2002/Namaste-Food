@@ -46,6 +46,7 @@
 	align-items: center;
 	font-size: 50px;
 	margin: 10px;
+	cursor: pointer;
 }
 
 .card-container {
@@ -80,7 +81,7 @@
 	padding-left: 10px;
 }
 
-.footer{
+.footer {
 	background-color: #333;
 	color: aliceblue;
 	display: flex;
@@ -88,3 +89,28 @@
 	padding: 10px;
 }
 
+.shimmer-container{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	
+}
+.shimmer_card {
+	width: 300px;
+	height: 300px;
+	margin: 10px;
+	border: 2px solid #22222218;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	animation: shimmer 1s infinite linear;
+}
+
+.Login-Logout-btn {
+	padding: 10px 15px;
+	position: relative;
+	bottom :4px;
+	font-weight: 700;
+	color: aliceblue;
+	background-color: #22222252;
+}

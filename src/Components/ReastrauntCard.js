@@ -1,3 +1,4 @@
+
 import { RES_IMG_URL } from "../Utils/constants";
 const ReastrauntCard = (props) => {
 	const { cuisines, name, avgRating, cloudinaryImageId, costForTwo } =
