@@ -2,10 +2,11 @@ import ReastrauntCard from "./ReastrauntCard";
 import { useState, useEffect } from "react";
 import { SWIGGY_API } from "../Utils/constants";
 import { Shimmer } from "./Card_shimmmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
 	const [dynamicResList, setdynamicResList] = useState([]);
-	const [dynamicFilterResList ,setdynamicFilterResList] = useState([])
+	const [dynamicFilterResList, setdynamicFilterResList] = useState([]);
 	const [searchText, setsearchText] = useState("");
 	useEffect(() => {
 		fetchData();
@@ -17,12 +18,12 @@ const Body = () => {
 
 		setdynamicResList(
 			//optional chaining
-			json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+			json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
 		);
-		
+
 		setdynamicFilterResList(
 			//optional chaining
-			json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+			json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
 		);
 	};
 	// 	conditional Rendering
@@ -59,17 +60,25 @@ const Body = () => {
 					className="filter-btn"
 					onClick={() => {
 						const filterList = dynamicResList.filter(
-							(res) => res.info.avgRating > 4
+							(res) => res.info.avgRating >= 4
 						);
 						setdynamicFilterResList(filterList);
 					}}>
 					Top Rated Restaurants
 				</button>
+				<button className="home-page" onClick={()=>{
+					setdynamicFilterResList(dynamicResList);
+				}}>Back to Home</button>
 			</div>
 			<div className="card-container">
 				{dynamicFilterResList.map((obj) => (
-					<ReastrauntCard key={obj.info.id} resData={obj} />
+					<Link to={"/restaurants/" + `${obj.info.id}`} key={obj.info.id}>
+						<ReastrauntCard resData={obj} />
+					</Link>
 				))}
+			</div>
+			<div className="load-more">
+				<h3> Load More</h3>
 			</div>
 		</div>
 	);

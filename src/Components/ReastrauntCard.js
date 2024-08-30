@@ -1,18 +1,18 @@
-
 import { RES_IMG_URL } from "../Utils/constants";
+import { STAR_ICON } from "../Utils/constants";
 const ReastrauntCard = (props) => {
 	const { cuisines, name, avgRating, cloudinaryImageId, costForTwo } =
 		props.resData.info;
 	return (
 		<div className="card">
-			<img
-				src={RES_IMG_URL+`${cloudinaryImageId}`}
-				alt="food"
-			/>
+			<img src={RES_IMG_URL + `${cloudinaryImageId}`} alt="food" />
 			<div className="content">
 				<h3>{name}</h3>
 				<h4>{cuisines.join(",  ")}</h4>
-				<h4>{avgRating}</h4>
+				<h4>
+					<img id="star" src={STAR_ICON}></img>
+					{" "+avgRating}
+				</h4>
 				<h4>{costForTwo}</h4>
 				<h4>{props.resData.info.sla.deliveryTime + " minutes"}</h4>
 			</div>

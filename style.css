@@ -3,16 +3,24 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-
+body {
+	background-color: #fbeaeb;
+	font-family: monospace;
+}
 .header {
-	background-color: #333;
+	background-color: #2f3c7e;
 	display: flex;
 	justify-content: space-between;
 	color: aliceblue;
 }
 
 .header .logo {
-	padding: 10px;
+	padding: 10px 30px;
+}
+
+.header #logo-img {
+	width: 80px;
+	border-radius: 50%;
 }
 
 .header .nav-bar .nav-items {
@@ -26,13 +34,18 @@
 	padding: 20px;
 	font-size: 20px;
 }
+/* instead of Link i used anchor tag for styling  */
+a {
+	text-decoration: none;
+	color: black;
+}
 
 .header .logo img {
 	width: 80px;
 }
 .mid-body {
-	background: rgba(192, 192, 153, 0.445);
-	padding: 10px;
+	background: rgba(130, 163, 192, 0.164);
+	padding: 30px;
 }
 .mid-body .search input {
 	padding: 10px;
@@ -82,18 +95,17 @@
 }
 
 .footer {
-	background-color: #333;
+	background-color: #2f3c7e;
 	color: aliceblue;
 	display: flex;
 	justify-content: space-evenly;
 	padding: 10px;
 }
 
-.shimmer-container{
+.shimmer-container {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	
 }
 .shimmer_card {
 	width: 300px;
@@ -109,8 +121,184 @@
 .Login-Logout-btn {
 	padding: 10px 15px;
 	position: relative;
-	bottom :4px;
+	bottom: 4px;
 	font-weight: 700;
 	color: aliceblue;
 	background-color: #22222252;
+}
+
+.load-more {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.load-more h4 {
+	cursor: pointer;
+	height: 30px;
+	width: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #22222252;
+}
+.star-icon {
+	width: 19px;
+	height: auto;
+}
+#star {
+	width: 19px;
+	height: auto;
+	position: relative;
+	top: 5px;
+}
+.menu-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+.menu-panel {
+	width: 42%;
+	height: auto;
+	background-color: rgb(252, 252, 252);
+	padding: 10px;
+	box-shadow: 2px 1px 1px black;
+	border-radius: 30px;
+}
+.menu-panel .res-name h1 {
+	text-align: center;
+}
+.banner {
+	width: 100%;
+	height: 120px;
+	background-color: aliceblue;
+	border-radius: 30px;
+	padding: 20px 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: 4px 3px 2px black;
+}
+.banner-element {
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 5px;
+}
+.banner-element #ele {
+	padding-right: 5px;
+	font-weight: 400;
+}
+
+.banner-img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: relative;
+	bottom: 10px;
+	box-shadow: 2px 1px 1px black;
+}
+
+.menu-shimmer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.shimmer {
+	margin: 20px 20px 0px 20px;
+	width: 500px;
+	height: 500px;
+	background-color: rgb(255, 255, 255);
+	border: 2px solid black;
+	box-shadow: 10px 5px 5px black;
+}
+
+.menu-items {
+	display: flex;
+	justify-content: space-between;
+	background-color: #22222252;
+	border-radius: 20px;
+	margin: 20px;
+}
+
+.menu-items .left-data {
+	width: 70%;
+	height: auto;
+	padding: 20px;
+}
+
+.menu-items .left-data .type-bestsell {
+	display: flex;
+	flex-direction: row;
+}
+
+.menu-items .left-data .rating-review {
+	display:flex;
+}
+
+.menu-items .right-data{
+	width: 30%;
+	height: auto;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	position :relative;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu-items .right-data .img-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative ;
+}
+
+.menu-items .right-data .img-div img {
+	width: 100px;
+	height: 100px;
+}
+
+.menu-items .right-data .add-button {
+	width: 60px;
+	height: 40px;
+	background-color: aliceblue;
+	position: relative;
+	bottom: 20px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#rat-rev{
+	margin:10px 0px;
+}
+.menu-list-star{
+	width: 19px;
+	height: auto;
+	position: relative;
+	bottom: 2px;
+}
+
+#st{
+	margin-right: 7px;
+}
+
+.bestseller-badge {
+  background: linear-gradient(to bottom, #d53d4c, #b02331);
+  color: #ffffff;
+  padding: 2px 4px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.filter-btn,.home-page{
+	background-color: #22222252;
+	color: aliceblue;
+	padding: 10px 20px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-left: 10px;
 }
