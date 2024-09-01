@@ -19,14 +19,14 @@ const Body = () => {
 
 		setdynamicResList(
 			//optional chaining
-			json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+			json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
 		);
 
 		setdynamicFilterResList(
 			//optional chaining
-			json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+			json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
 		);
-		console.log(dynamicFilterResList,dynamicResList);
+		
 	};
 	const onlineStatus = useOnlineStatus();
 	if (onlineStatus == false)
@@ -86,9 +86,14 @@ const Body = () => {
 			</div>
 			<div className="flex flex-wrap justify-evenly">
 				{dynamicFilterResList.map((res_obj) => (
-
-					<Link to={"/restaurants/" + `${res_obj.info.id}`} key={res_obj.info.id}>
-						{res_obj.info ? <OpenRestaurantCard resData={res_obj} /> : <ReastrauntCard resData={res_obj} />}
+					<Link
+						to={"/restaurants/" + `${res_obj.info.id}`}
+						key={res_obj.info.id}>
+						{res_obj.info ? (
+							<OpenRestaurantCard resData={res_obj} />
+						) : (
+							<ReastrauntCard resData={res_obj} />
+						)}
 					</Link>
 				))}
 			</div>
