@@ -2,14 +2,13 @@ export const LOGO_URL =
 	"https://as1.ftcdn.net/v2/jpg/02/41/30/72/1000_F_241307210_MjjaJC3SJy2zJZ6B7bKGMRsKQbdwRSze.jpg";
 
 export const RES_IMG_URL =
-	"https://media-assets.swiggy.com/swiggy/image/upload/";
+	"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
-export const SWIGGY_API = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.424993962768212&lng=80.29367318655514&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
+export const SWIGGY_API ="https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.449923&lng=80.3318736&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
-export const STAR_ICON = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEyElEQVR4nM2aW2hcRRiAj1RQH7ygOTObeqmXWkVEEPvkg09qRURrrQ+CVmnrYxF8KYqKl0cfvLSVBgqKhSRndtc0wfRCkbReKu2apCnYarXGZs+cbLq7yW6yt2yy+8t/1r1fzjmzc3b7ww9LmPnn/87/z8w/M1EUl+Rff0+vPtCzwWC9j6Hib/ybcjXL9NDNtxiD6kuckb26RgK6Rhc5o9BIdUbjZhtG9hhedQv27arzAMo1BlOf4Yx4uUYyzRy3VpLmjGh8UN2ENjsKgV+SMzop7nwT1egEHySbXQfAPOeMHpcOUJt+Gj0W9PXc7wpEkKnbdEYSbkPwcsqlOCNvSQOAMeVanZEDnQOgtYtDHzBlTVsQM+yOGzgjI92C4OVUOzT99brrxSLBlDW6Rv3dhuDlVBvB7HAMIiudjO/uNVVSZPY7guCM7pD1JePnPoH41McS08zzur1IDPRs0DWSlBONeyCXCUMuE5UXFUYSM0xdbw2ikcPSojH1ERQlfvZDiVGhx+zs2FIGM/x3wWpqtgSSS18Bw3+3PBhGnm8eDUZ+kxaNsx9ArcQm35dazkCj2qxQAMqMhlEHkkvPgeFfJw/Gqz5dB2JWsZIGiE28WwdRisrEOxKjQgaqIPBM0F4pXhEN350No1GU1XTIjJgcGJKKHLz1phJIkHm2SovG+O6mEKWojO+WmF7khXJaaWSfiJHQyCMQHtsMC4G3YemPvZDWRyGXjVmCYBtsi32wL9pAW1zAB52RLyr3jkCrxrPDD8HCmV2weP4zSM0MQ3bhHORXEiBb8isJ0zaOgWPhmDi2RXqdrlh2abx1+NZCclqDTktqZgi493arqMRMiFA/ofZysReS//R3DuKyz/yAthYY5lEV7ut90H5OeiDx1wHXIZKXDpofzq5f5rHY8Ho2OptgHkhc7HMNIvH3N+YYTnzCezMBkILiZJQtS39+JbRymSA6W/uASGcT5vdP5UFc2CPkQym1bE/2FgenbkLw4mS3tfxa6HJ0QhgC+7YzNi8uv3Y2RCvNZSLCIHhOaQ+ElDdEvHwWNTQ78jC0K9a7N22qOqOfl88i5k26mKHIia1tg0RObJFzUpzGMt68FXduKDb5XtsgeH4RTKtU+NBtN1YfrDTCRIzhLtxS8isFbSHJS9+KplV//QlxUN0kYmw5EmhGAKngCMwdeRxCoxtNZyG/2rDlcvi0aESeqgMRu3zwQD67WOdYJnQSrhx/sq793NEnTLhayWXjjssSnZHxpg9D+MjixBh+6aovGwlAZOxFy37hH56FzNzPVX1D3z/qDMRLn2sIUbEUj9o1Fv3pVdOJldgFmD+103FqRE6+DNn5KdNG5MdXnMyNo4qVYN1i90EnemrH/wDO0qI2Ped/fROiv2y3C7F0eUC9zxKkMFfoG+KOuatBpm6zBVEB09dtp3mtamSfIvTQw6iv686zkg4LPfSg4HOXzuhQtyF0jfovHl5/nRBEVWQ0ur+b6QTtPoZWisHU17rwPL1TcUPwpUhn9EgHIEZtL7HtCJbOMt9SynOBBCx3bDcE3yfwar+QBuIphFVs0wKwk4JX+1in6Rr5UmfkDJ6jWzgfw+MpXj7jTXrdeUK5ygRvZ7DcKf7jGf6e9VPi1oD/AXfhodPu732NAAAAAElFTkSuQmCC`;
+export const STAR_ICON = `https://cdn2.iconfinder.com/data/icons/greenline/512/star-512.png`;
 
-export const MENU_API = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.424993962768212&lng=80.29367318655514&restaurantId=`;
-
+export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.449923&lng=80.3318736&restaurantId=";
 export const IMG_VEG =
 	"https://img.icons8.com/color/48/vegetarian-food-symbol.png";
 

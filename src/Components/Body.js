@@ -1,13 +1,14 @@
-import ReastrauntCard from "./ReastrauntCard";
+import ReastrauntCard, { withOpenLabel } from "./ReastrauntCard";
 import { useState, useEffect } from "react";
 import { SWIGGY_API } from "../Utils/constants";
 import { Shimmer } from "./Card_shimmmer";
 import { Link } from "react-router-dom";
-
+import { useOnlineStatus } from "../Utils/custom-hooks";
 const Body = () => {
 	const [dynamicResList, setdynamicResList] = useState([]);
 	const [dynamicFilterResList, setdynamicFilterResList] = useState([]);
 	const [searchText, setsearchText] = useState("");
+	const OpenRestaurantCard = withOpenLabel(ReastrauntCard);
 	useEffect(() => {
 		fetchData();
 	}, []);
@@ -25,7 +26,16 @@ const Body = () => {
 			//optional chaining
 			json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
 		);
+		console.log(dynamicFilterResList,dynamicResList);
 	};
+	const onlineStatus = useOnlineStatus();
+	if (onlineStatus == false)
+		return (
+			<h1>
+				Looks Like you are offline!! check your internet connection and try
+				again
+			</h1>
+		);
 	// 	conditional Rendering
 	// 	if (dynamicResList.length === 0) {
 	// 		return <Shimmer />;
@@ -33,19 +43,19 @@ const Body = () => {
 	return !dynamicResList.length ? (
 		<Shimmer />
 	) : (
-		<div className="mid-body">
-			<div className="search">
+		<div className="w-full p-5">
+			<div className="flex justify-between p-2">
 				<input
-					className="search-input"
+					className="w-full px-6 outline-none p-2 border-slate-300 border-2 rounded-lg"
 					type="search"
-					placeholder="Search"
+					placeholder="Search Restaurants"
 					value={searchText}
 					onChange={(e) => {
 						setsearchText(e.target.value);
 					}}
 				/>
 				<i
-					class="ri-search-2-line"
+					class="ri-search-2-line text-4xl mx-2"
 					onClick={() => {
 						const filterList = dynamicResList.filter((res) => {
 							return res.info.name
@@ -55,9 +65,9 @@ const Body = () => {
 						setdynamicFilterResList(filterList);
 					}}></i>
 			</div>
-			<div className="component">
+			<div className="flex justify-normal gap-2">
 				<button
-					className="filter-btn"
+					className="transition-all hover:scale-90 w-auto p-2 text-sm text-slate-100 bg-gray-600 m-1 rounded-xl"
 					onClick={() => {
 						const filterList = dynamicResList.filter(
 							(res) => res.info.avgRating >= 4
@@ -66,19 +76,21 @@ const Body = () => {
 					}}>
 					Top Rated Restaurants
 				</button>
-				<button className="home-page" onClick={()=>{
-					setdynamicFilterResList(dynamicResList);
-				}}>Back to Home</button>
+				<button
+					className="transition-all hover:scale-90 w-auto p-2 text-sm text-slate-100 bg-gray-600 m-1 rounded-xl"
+					onClick={() => {
+						setdynamicFilterResList(dynamicResList);
+					}}>
+					Back to Home
+				</button>
 			</div>
-			<div className="card-container">
-				{dynamicFilterResList.map((obj) => (
-					<Link to={"/restaurants/" + `${obj.info.id}`} key={obj.info.id}>
-						<ReastrauntCard resData={obj} />
+			<div className="flex flex-wrap justify-evenly">
+				{dynamicFilterResList.map((res_obj) => (
+
+					<Link to={"/restaurants/" + `${res_obj.info.id}`} key={res_obj.info.id}>
+						{res_obj.info ? <OpenRestaurantCard resData={res_obj} /> : <ReastrauntCard resData={res_obj} />}
 					</Link>
 				))}
-			</div>
-			<div className="load-more">
-				<h3> Load More</h3>
 			</div>
 		</div>
 	);

@@ -15,9 +15,9 @@ const MenuItem = (props) => {
 	const { aggregatedRating } = ratings;
 	const { rating, ratingCount } = aggregatedRating;
 	return (
-		<div className="menu-items">
-			<div className="left-data">
-				<div className="type-bestsell">
+		<div className="flex gap-10 p-justify-between m-2 p-8 rounded-2xl bg-slate-200">
+			<div className="w-[70%]">
+				<div className="flex">
 					{isVeg && (
 						<img
 							width="20"
@@ -34,24 +34,32 @@ const MenuItem = (props) => {
 							alt="non-vegetarian-food-symbol"
 						/>
 					)}
-					{isBestseller && <div class="bestseller-badge">Bestseller</div>}
+					{isBestseller && (
+						<div class=" bg-red-600 text-white font-bold px-2 text-sm rounded-md">
+							Bestseller
+						</div>
+					)}
 				</div>
-				<h3>{name}</h3>
-				<h4>₹{Number(price) / 100 || Number(defaultPrice) / 100}</h4>
+				<h3 className="font-bold">{name}</h3>
+				<h4 className="font-semibold">
+					₹{Number(price) / 100 || Number(defaultPrice) / 100}
+				</h4>
 				{rating && ratingCount && (
-					<div className="rating-review" id="rat-rev">
-						<img className="menu-list-star" src={STAR_ICON} id="st"></img>
-						<p id="st">{rating}</p>
-						<p id="st"> ({ratingCount})</p>
+					<div className="flex gap-1.5" id="rat-rev">
+						<img className="w-5 h-5" src={STAR_ICON}></img>
+						<p className="text-green-600 text-sm font-semibold">{rating}</p>
+						<p className="text-sm"> ({ratingCount})</p>
 					</div>
 				)}
-				<p>{description}</p>
+				<p className="text-justify font-mono">{description}</p>
 			</div>
-			<div className="right-data">
+			<div className="w-[30%] right-data flex flex-col justify-center items-center">
 				<div className="img-div">
-					<img className="menu-img" src={RES_IMG_URL + `${imageId}`}></img>
+					<img
+						className="w-36 h-36 rounded-lg shadow-lg"
+						src={RES_IMG_URL + `${imageId}`}></img>
 				</div>
-				<div className="add-button">
+				<div className="relative bottom-4 bg-white px-4 py-2 rounded-xl">
 					<h4>Add+</h4>
 				</div>
 			</div>
