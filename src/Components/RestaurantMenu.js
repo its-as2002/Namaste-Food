@@ -4,11 +4,11 @@ import MenuShimmer from "./MenuShimmer";
 import { useParams } from "react-router-dom";
 import Category from "./Category";
 
-
 const RestaurantMenu = () => {
 	const { resId } = useParams(); //params return an object with redId as key
 	const [menuCard, setMenuCard] = useState("");
 	const [categories, setCategories] = useState([]);
+	const [showIndex, setShowIndex] = useState(null);// here null means that we don't have to show any category
 	useEffect(() => {
 		fetchMenuCard();
 	}, []);
@@ -20,16 +20,14 @@ const RestaurantMenu = () => {
 		const filteredCategories =
 			json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
 				(card) =>
-					(card?.card?.card?.["@type"] ===
-					"type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
-					
+					card?.card?.card?.["@type"] ===
+					"type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
 			);
 		setCategories(filteredCategories);
 	};
 
-	if (menuCard == "") 
-		return <MenuShimmer />;
-	
+	if (menuCard == "") return <MenuShimmer />;
+
 	const {
 		name,
 		cloudinaryImageId,
@@ -71,12 +69,16 @@ const RestaurantMenu = () => {
 				<div>
 					{categories.map((category, index) => (
 						<Category
-							key={index} title = {category.card.card.title}
+							key={index}
+							index ={index}
+							title={category.card.card.title}
 							itemCards={category.card.card.itemCards}
+							isOpen={index === showIndex}
+							showIndex={showIndex}
+							setShowIndex={setShowIndex}
 						/>
 					))}
 				</div>
-			
 			</div>
 		</div>
 	);

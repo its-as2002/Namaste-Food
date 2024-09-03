@@ -51,7 +51,7 @@ const MenuItem = (props) => {
 						<p className="text-sm"> ({ratingCount})</p>
 					</div>
 				)}
-				<p className="text-justify font-mono">{description}</p>
+				<p className="text-justify font-mono text-sm my-1">{description}</p>
 			</div>
 			<div className="w-[30%] right-data flex flex-col justify-center items-center">
 				<div className="img-div">
@@ -59,8 +59,8 @@ const MenuItem = (props) => {
 						className="w-36 h-36 rounded-lg shadow-lg"
 						src={RES_IMG_URL + `${imageId}`}></img>
 				</div>
-				<div className="relative bottom-4 bg-white px-4 py-2 rounded-xl">
-					<h4>Add+</h4>
+				<div className="transition-all hover:scale-90 relative bottom-4 bg-white px-4 py-2 rounded-xl">
+					<h4 className="font-semibold text-sm">Add+</h4>
 				</div>
 			</div>
 		</div>

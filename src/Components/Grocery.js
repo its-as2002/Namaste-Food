@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Grocery = ()=>{
     // return <h1>This is the example of bundling ,chunking, dynamic import, lazy loading, chunking,onDemand loading</h1>
     return (
@@ -24,9 +25,9 @@ const Grocery = ()=>{
 					<p className="text-lg text-gray-600 mb-6">
 						We are currently working on something awesome. Stay tuned!
 					</p>
-					{/* <a href="./" className="text-indigo-600 hover:underline">
+					<Link to="/" className="text-indigo-600 hover:underline">
 						Back to Home
-					</a> */}
+					</Link>
 				</div>
 			</div>
 		);
