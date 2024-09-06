@@ -26,7 +26,6 @@ const Body = () => {
 			//optional chaining
 			json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
 		);
-		
 	};
 	const onlineStatus = useOnlineStatus();
 	if (onlineStatus == false)
@@ -55,7 +54,7 @@ const Body = () => {
 					}}
 				/>
 				<i
-					class="ri-search-2-line text-4xl mx-2"
+					className="ri-search-2-line text-4xl mx-2"
 					onClick={() => {
 						const filterList = dynamicResList.filter((res) => {
 							return res.info.name

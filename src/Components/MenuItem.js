@@ -1,5 +1,7 @@
 import { RES_IMG_URL, STAR_ICON } from "../Utils/constants";
 import { IMG_VEG, IMG_NONVEG } from "../Utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../Utils/SliceStore/cartSlice";
 const MenuItem = (props) => {
 	const { item } = props;
 	const {
@@ -14,6 +16,7 @@ const MenuItem = (props) => {
 	} = item.card.info;
 	const { aggregatedRating } = ratings;
 	const { rating, ratingCount } = aggregatedRating;
+	const dispatch = useDispatch();
 	return (
 		<div className="flex gap-10 p-justify-between m-2 p-8 rounded-2xl bg-slate-200">
 			<div className="w-[70%]">
@@ -35,7 +38,7 @@ const MenuItem = (props) => {
 						/>
 					)}
 					{isBestseller && (
-						<div class=" bg-red-600 text-white font-bold px-2 text-sm rounded-md">
+						<div className="bg-red-600 text-white font-bold px-2 text-sm rounded-md">
 							Bestseller
 						</div>
 					)}
@@ -56,11 +59,14 @@ const MenuItem = (props) => {
 			<div className="w-[30%] right-data flex flex-col justify-center items-center">
 				<div className="img-div">
 					<img
+						alt="db-error"
 						className="w-36 h-36 rounded-lg shadow-lg"
 						src={RES_IMG_URL + `${imageId}`}></img>
 				</div>
 				<div className="transition-all hover:scale-90 relative bottom-4 bg-white px-4 py-2 rounded-xl">
-					<h4 className="font-semibold text-sm">Add+</h4>
+					<h4 className="font-semibold text-sm cursor-pointer" onClick={()=>{
+						dispatch(addItem(item));
+					}}>Add+</h4>
 				</div>
 			</div>
 		</div>
