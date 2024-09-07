@@ -19,12 +19,12 @@ const Body = () => {
 
 		setdynamicResList(
 			//optional chaining
-			json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+			json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
 		);
 
 		setdynamicFilterResList(
 			//optional chaining
-			json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+			json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
 		);
 	};
 	const onlineStatus = useOnlineStatus();
