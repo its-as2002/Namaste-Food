@@ -1,13 +1,16 @@
 import ReastrauntCard, { withOpenLabel } from "./ReastrauntCard";
 import { useState, useEffect } from "react";
-import { SWIGGY_API } from "../Utils/constants";
+import { RES_IMG_URL, SWIGGY_API } from "../Utils/constants";
 import { Shimmer } from "./Card_shimmmer";
 import { Link } from "react-router-dom";
 import { useOnlineStatus } from "../Utils/custom-hooks";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+
 const Body = () => {
 	const [dynamicResList, setdynamicResList] = useState([]);
 	const [dynamicFilterResList, setdynamicFilterResList] = useState([]);
 	const [searchText, setsearchText] = useState("");
+	const [foodCategory, setfoodCategory] = useState([]);
 	const OpenRestaurantCard = withOpenLabel(ReastrauntCard);
 	useEffect(() => {
 		fetchData();
@@ -16,6 +19,10 @@ const Body = () => {
 	const fetchData = async () => {
 		const data = await fetch(SWIGGY_API);
 		const json = await data.json();
+
+		setfoodCategory(
+			json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
+		);
 
 		setdynamicResList(
 			//optional chaining
@@ -36,16 +43,50 @@ const Body = () => {
 			</h1>
 		);
 	// 	conditional Rendering
-	// 	if (dynamicResList.length === 0) {
-	// 		return <Shimmer />;
-	// 	}
-	return !dynamicResList.length ? (
-		<Shimmer />
-	) : (
-		<div className="w-full p-5">
-			<div className="flex justify-between p-2">
+	if (dynamicResList.length === 0) {
+		return <Shimmer />;
+	}
+	const slideLeft = () => {
+		const slider = document.getElementById("slider");
+		slider.scrollLeft -= 500;
+	};
+
+	const slideRight = () => {
+		const slider = document.getElementById("slider");
+		slider.scrollLeft += 500;
+	};
+
+	return (
+		<div className="p-5 flex flex-col item-center w-full">
+			<div className="items-center flex relative ">
+				<MdChevronLeft
+					onClick={slideLeft}
+					size={40}
+					className="cursor-pointer opacity-50 hover:opacity-100"
+				/>
+				<div
+					id="slider"
+					className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide">
+					{foodCategory.map((category) => {
+						return (
+							<img
+								className="w-32 inline-block hover:scale-110 transition-all duration-300"
+								src={RES_IMG_URL + `${category.imageId}`}
+								alt="res_img"
+							/>
+						);
+					})}
+				</div>
+				<MdChevronRight
+					onClick={slideRight}
+					size={40}
+					className="cursor-pointer opacity-50 hover:opacity-100"
+				/>
+			</div>
+
+			<div className="flex justify-center p-2">
 				<input
-					className="w-full px-6 outline-none p-2 border-slate-300 border-2 rounded-lg"
+					className="w-3/6 px-6 outline-none p-2 border-slate-300 border-2 rounded-lg"
 					type="search"
 					placeholder="Search Restaurants"
 					value={searchText}
@@ -54,7 +95,7 @@ const Body = () => {
 					}}
 				/>
 				<i
-					className="ri-search-2-line text-4xl mx-2"
+					className="ri-search-2-line text-4xl mx-2 cursor-pointer"
 					onClick={() => {
 						const filterList = dynamicResList.filter((res) => {
 							return res.info.name
@@ -64,9 +105,9 @@ const Body = () => {
 						setdynamicFilterResList(filterList);
 					}}></i>
 			</div>
-			<div className="flex justify-normal gap-2">
+			<div className="flex justify-normal gap-2 px-10">
 				<button
-					className="transition-all hover:scale-90 w-auto p-2 text-sm text-slate-100 bg-gray-600 m-1 rounded-xl"
+					className="transition-all hover:scale-90 w-auto p-2 text-sm text-slate-100 bg-gray-600 m-1 rounded-xl opacity-50 hover:opacity-100"
 					onClick={() => {
 						const filterList = dynamicResList.filter(
 							(res) => res.info.avgRating >= 4
@@ -76,7 +117,7 @@ const Body = () => {
 					Top Rated Restaurants
 				</button>
 				<button
-					className="transition-all hover:scale-90 w-auto p-2 text-sm text-slate-100 bg-gray-600 m-1 rounded-xl"
+					className="transition-all hover:scale-90 w-auto p-2 text-sm text-slate-100 bg-gray-600 m-1 rounded-xl opacity-50 hover:opacity-100"
 					onClick={() => {
 						setdynamicFilterResList(dynamicResList);
 					}}>

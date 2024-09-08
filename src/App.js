@@ -15,6 +15,7 @@ import appStore from "./Utils/SliceStore/appStore";
 import Cart from "./Components/Cart.js";
 import Checkout from "./Components/CheckOut.js";
 
+
 const Grocery = lazy(() => import("./Components/Grocery"));
 const AppLayout = () => {
 	const [userName, setUserName] = useState();
@@ -60,7 +61,7 @@ const appRouter = createBrowserRouter([
 				element: <Contact />,
 			},
 			{
-				path: "/cart", // resId : uniqueId of restaurant
+				path: "/cart", 
 				element: <Cart />,
 			},
 			{
@@ -77,7 +78,11 @@ const appRouter = createBrowserRouter([
 					</Suspense>
 				),
 			},
-			{ path: "/checkout", element: <Checkout /> },
+			{
+				path: "/checkout",
+				element: <Checkout />,
+			},
+			
 		],
 	},
 ]);

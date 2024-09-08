@@ -1,43 +1,44 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 @keyframes shimmer {
-  0% {
-    background-position: -100% 0;
-  }
-  100% {
-    background-position: 100% 0;
-  }
+	0% {
+		background-position: -100% 0;
+	}
+	100% {
+		background-position: 100% 0;
+	}
 }
 
 .animate-shimmer {
-  background: linear-gradient(
-    to right,
-    #f0f0f0 4%,
-    #e0e0e0 25%,
-    #f0f0f0 36%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite linear;
+	background: linear-gradient(to right, #f0f0f0 4%, #e0e0e0 25%, #f0f0f0 36%);
+	background-size: 200% 100%;
+	animation: shimmer 1.5s infinite linear;
 }
 
 .shimmer-bg {
-  background: linear-gradient(
-    to right,
-    #f0f0f0 4%,
-    #e0e0e0 25%,
-    #f0f0f0 36%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite linear;
-  display: inline-block;
-  border-radius: 0.25rem;
-  color: inherit; /* Ensure the text color is visible */
-  -webkit-background-clip: text;
-  background-clip: text;
+	background: linear-gradient(to right, #f0f0f0 4%, #e0e0e0 25%, #f0f0f0 36%);
+	background-size: 200% 100%;
+	animation: shimmer 1.5s infinite linear;
+	display: inline-block;
+	border-radius: 0.25rem;
+	color: inherit; /* Ensure the text color is visible */
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.scrollbar-hide {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 }
