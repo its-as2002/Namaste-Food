@@ -126,12 +126,11 @@ const Body = () => {
 			</div>
 			<div className="flex flex-wrap justify-evenly">
 				{dynamicFilterResList.map((res_obj) => {
-					console.log(res_obj.info);
 					return (
 						<Link
 							to={"/restaurants/" + `${res_obj.info.id}`}
 							key={res_obj.info.id}>
-							{(res_obj.info.avgRating > 4.5) ? (
+							{res_obj.info.avgRating > 4.5 ? (
 								<RecommendedRestaurantCard resData={res_obj} />
 							) : (
 								<ReastrauntCard resData={res_obj} />
