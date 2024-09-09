@@ -30,16 +30,16 @@ const ReastrauntCard = (props) => {
 		</div>
 	);
 };
-export const withOpenLabel= (ReastrauntCard)=>{
-	return (props)=>{
+export const withRecommendedLabel = (ReastrauntCard) => {
+	return (props) => {
 		return (
 			<div className="relative">
-				<label className="absolute top-2 z-40 left-2 bg-green-400 text-white font-bold px-2 py-1 rounded-md ">
-					OPEN
+				<label className="absolute top-2 z-40 left-2 bg-cyan-400 text-sm text-white font-bold px-2 py-1 rounded-md ">
+					Recommended
 				</label>
 				<ReastrauntCard {...props} />
 			</div>
 		);
-	}
-}
+	};
+};
 export default ReastrauntCard;

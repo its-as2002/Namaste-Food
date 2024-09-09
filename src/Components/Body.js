@@ -1,4 +1,4 @@
-import ReastrauntCard, { withOpenLabel } from "./ReastrauntCard";
+import ReastrauntCard, { withRecommendedLabel } from "./ReastrauntCard";
 import { useState, useEffect } from "react";
 import { RES_IMG_URL, SWIGGY_API } from "../Utils/constants";
 import { Shimmer } from "./Card_shimmmer";
@@ -11,7 +11,7 @@ const Body = () => {
 	const [dynamicFilterResList, setdynamicFilterResList] = useState([]);
 	const [searchText, setsearchText] = useState("");
 	const [foodCategory, setfoodCategory] = useState([]);
-	const OpenRestaurantCard = withOpenLabel(ReastrauntCard);
+	const RecommendedRestaurantCard = withRecommendedLabel(ReastrauntCard);
 	useEffect(() => {
 		fetchData();
 	}, []);
@@ -125,17 +125,20 @@ const Body = () => {
 				</button>
 			</div>
 			<div className="flex flex-wrap justify-evenly">
-				{dynamicFilterResList.map((res_obj) => (
-					<Link
-						to={"/restaurants/" + `${res_obj.info.id}`}
-						key={res_obj.info.id}>
-						{res_obj.info ? (
-							<OpenRestaurantCard resData={res_obj} />
-						) : (
-							<ReastrauntCard resData={res_obj} />
-						)}
-					</Link>
-				))}
+				{dynamicFilterResList.map((res_obj) => {
+					console.log(res_obj.info);
+					return (
+						<Link
+							to={"/restaurants/" + `${res_obj.info.id}`}
+							key={res_obj.info.id}>
+							{(res_obj.info.avgRating > 4.5) ? (
+								<RecommendedRestaurantCard resData={res_obj} />
+							) : (
+								<ReastrauntCard resData={res_obj} />
+							)}
+						</Link>
+					);
+				})}
 			</div>
 		</div>
 	);

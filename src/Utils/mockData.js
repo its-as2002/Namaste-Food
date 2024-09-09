@@ -719,4 +719,105 @@ const resList = [
 		widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
 	},
 ];
+
+export const resData = {
+	info: {
+		id: "68566",
+		name: "Sainik Bhojnalaya",
+		cloudinaryImageId: "dpb6l4gb0bjnwnicermh",
+		locality: "Sadar Bazaar",
+		areaName: "Sadar Bazaar",
+		costForTwo: "₹200 for two",
+		cuisines: [
+			"North Indian",
+			"Thalis",
+			"Indian",
+			"Fast Food",
+			"Continental",
+			"Sweets",
+			"Punjabi",
+		],
+		avgRating: 3.3,
+		parentId: "175774",
+		avgRatingString: "3.3",
+		totalRatingsString: "10K+",
+		sla: {
+			deliveryTime: 26,
+			lastMileTravel: 1.4,
+			serviceability: "SERVICEABLE",
+			slaString: "25-30 mins",
+			lastMileTravelString: "1.4 km",
+			iconType: "ICON_TYPE_EMPTY",
+		},
+		availability: {
+			nextCloseTime: "2024-08-25 23:55:00",
+			opened: true,
+		},
+		badges: {
+			imageBadges: [
+				{
+					imageId: "v1695133679/badges/Pure_Veg111.png",
+					description: "pureveg",
+				},
+			],
+		},
+		isOpen: true,
+		type: "F",
+		badgesV2: {
+			entityBadges: {
+				imageBased: {
+					badgeObject: [
+						{
+							attributes: {
+								description: "pureveg",
+								imageId: "v1695133679/badges/Pure_Veg111.png",
+							},
+						},
+					],
+				},
+				textBased: {},
+				textExtendedBadges: {},
+			},
+		},
+		aggregatedDiscountInfoV3: {
+			header: "ITEMS",
+			subHeader: "AT ₹119",
+		},
+		orderabilityCommunication: {
+			title: {},
+			subTitle: {},
+			message: {},
+			customIcon: {},
+		},
+		differentiatedUi: {
+			displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+			differentiatedUiMediaDetails: {
+				mediaType: "ADS_MEDIA_ENUM_IMAGE",
+				lottie: {},
+				video: {},
+			},
+		},
+		reviewsSummary: {},
+		displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+		restaurantOfferPresentationInfo: {},
+		externalRatings: {
+			aggregatedRating: {
+				rating: "4.0",
+				ratingCount: "1K+",
+			},
+			source: "GOOGLE",
+			sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+		},
+		ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+	},
+	analytics: {
+		context: "seo-data-23dfc53a-84f2-43de-b175-4d88808c4737",
+	},
+	cta: {
+		link: "https://www.swiggy.com/restaurants/sainik-bhojnalaya-sadar-bazaar-lucknow-68566",
+		text: "RESTAURANT_MENU",
+		type: "WEBLINK",
+	},
+	widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+};
 export default resList;
